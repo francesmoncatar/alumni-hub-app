@@ -1,0 +1,30 @@
+:root { --navy: #1d3580; --bg: #f5f7fa; --green: #28a745; --blue: #2d66f7; --red: #dc3545; }
+body { margin: 0; background: #222; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; }
+.mobile-container { width: 390px; height: 844px; background: var(--bg); overflow-y: auto; position: relative; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+.header-blue { background: var(--navy); color: white; padding: 50px 20px 20px; }
+.header-text h1 { font-size: 1.2rem; margin: 0; }
+.header-text p { font-size: 0.8rem; margin: 5px 0 0; opacity: 0.8; }
+.content { padding: 15px; padding-bottom: 80px; }
+.chip-container { display: flex; gap: 8px; overflow-x: auto; padding: 10px 0; }
+.chip { padding: 8px 15px; border-radius: 5px; border: 1px solid #ccc; background: white; cursor: pointer; font-size: 0.8rem; }
+.chip.active { background: var(--navy); color: white; border-color: var(--navy); }
+.stats-card { background: white; border-radius: 12px; display: flex; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.stat-item { flex: 1; text-align: center; }
+.stat-count { font-size: 1.4rem; font-weight: bold; display: block; }
+.stat-label { font-size: 0.7rem; color: #999; }
+.orange { color: #f2994a; } .blue { color: #2d66f7; } .green { color: #27ae60; } .dark { color: #333; }
+.request-card { background: white; border-radius: 15px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.card-header { display: flex; justify-content: space-between; align-items: start; }
+.badge { font-size: 0.7rem; padding: 4px 10px; border-radius: 10px; }
+.badge.approved { background: #e7f0ff; color: var(--blue); }
+.badge.ready { background: #e6f9ed; color: var(--green); }
+.badge.pending { background: #fff9e6; color: #f2994a; }
+.ref-no { color: #999; font-size: 0.8rem; margin: 5px 0; }
+.divider { border: none; border-top: 1px solid #eee; margin: 15px 0; }
+.btn-ready { width: 100%; background: var(--green); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+.btn-group { display: flex; gap: 10px; }
+.btn-approve { flex: 1; background: var(--blue); color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; }
+.btn-reject { flex: 1; background: white; border: 1px solid var(--red); color: var(--red); padding: 12px; border-radius: 8px; cursor: pointer; }
+.ready-banner { background: #e6f9ed; color: var(--green); text-align: center; padding: 10px; border-radius: 8px; font-size: 0.8rem; border: 1px solid var(--green); }
+.bottom-nav { position: absolute; bottom: 0; width: 100%; background: var(--navy); color: white; display: flex; justify-content: space-around; padding: 10px 0; text-align: center; font-size: 0.6rem; }
+.icon-square { background: white; color: var(--navy); padding: 5px 10px; border-radius: 5px; display: inline-block; }

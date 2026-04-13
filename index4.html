@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="style3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>[ng-cloak] { display: none !important; }</style>
+</head>
+<body ng-controller="StudentCtrl" ng-cloak>
+    <div class="mobile-container">
+        <header class="header-blue">
+            <div class="header-content" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1>Welcome Back!</h1>
+                    <p ng-bind="user" style="font-weight: bold;"></p>
+                </div>
+                <div style="font-size: 2rem; opacity: 0.5;">👤</div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: -30px; margin-bottom: 20px;">
+                <div style="background: white; padding: 15px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="color: orange;">🕒</div><div style="font-weight: bold;">1</div><div style="font-size: 0.7rem;">Pending</div>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="color: blue;">✓</div><div style="font-weight: bold;">1</div><div style="font-size: 0.7rem;">Approved</div>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="color: green;">📦</div><div style="font-weight: bold;">1</div><div style="font-size: 0.7rem;">Ready</div>
+                </div>
+            </div>
+
+            <button class="btn-ready" style="margin-bottom: 20px;">📋 Request Document</button>
+
+            <div class="request-card" ng-repeat="req in myRequests">
+                <div class="card-header">
+                    <span class="badge" ng-class="req.statusClass" ng-bind="req.status"></span>
+                    <span style="font-size: 0.7rem; color: #999;" ng-bind="req.subDate"></span>
+                </div>
+                <h3 ng-bind="req.title" style="margin: 10px 0;"></h3>
+                <p class="ref-no">Ref: <span ng-bind="req.ref"></span></p>
+                <div class="ready-banner" ng-if="req.status === 'Ready for Pickup'" style="margin-top: 10px;">
+                    Your document is ready! Visit the Registrar's Office.
+                </div>
+                <div class="ready-banner" ng-if="req.status === 'Approved'" style="background: #e7f0ff; color: #2d66f7; border-color: #2d66f7; margin-top: 10px;">
+                    Your request has been approved and is now being processed.
+                </div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <div class="nav-item">👤<p>My Profile</p></div>
+            <div class="nav-item active"><div class="icon-square">⊞</div><p>Dashboard</p></div>
+            <div class="nav-item">📋<p>History</p></div>
+        </nav>
+    </div>
+    <script src="app4.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="staffPortal">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Management Portal</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>[ng-cloak] { display: none !important; }</style>
+</head>
+<body ng-controller="StaffController" ng-cloak>
+
+    <div class="mobile-container">
+        <header class="header-blue">
+            <div class="header-top">
+                <span class="back-arrow">←</span>
+                <div class="header-text">
+                    <h1>Staff Management</h1>
+                    <p>Manage Document Requests</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="filter-section">
+                <div class="filter-label">▽ Filter by Status</div>
+                <div class="chip-container">
+                    <button class="chip" ng-class="{'active': activeFilter === 'All'}" ng-click="setFilter('All')">All</button>
+                    <button class="chip" ng-class="{'active': activeFilter === 'Pending'}" ng-click="setFilter('Pending')">Pending</button>
+                    <button class="chip" ng-class="{'active': activeFilter === 'Approved'}" ng-click="setFilter('Approved')">Approved</button>
+                    <button class="chip" ng-class="{'active': activeFilter === 'Ready'}" ng-click="setFilter('Ready')">Ready for Pickup</button>
+                </div>
+            </section>
+
+            <section class="stats-card">
+                <div class="stat-item"><span class="stat-count dark">3</span><span class="stat-label">Total</span></div>
+                <div class="stat-item"><span class="stat-count orange">1</span><span class="stat-label">Pending</span></div>
+                <div class="stat-item"><span class="stat-count blue">1</span><span class="stat-label">Approved</span></div>
+                <div class="stat-item"><span class="stat-count green">1</span><span class="stat-label">Ready</span></div>
+            </section>
+
+            <section class="request-list">
+                <div class="request-card" ng-repeat="req in requests | filter: statusFilter">
+                    <div class="card-header">
+                        <h3>{{req.documentName}}</h3>
+                        <span class="badge" ng-class="req.statusClass">
+                            <span ng-if="req.status === 'Approved'">✓ 📦 🕒</span>
+                            {{req.status}}
+                        </span>
+                    </div>
+                    <p class="ref-no">Ref: {{req.ref}}</p>
+                    <div class="user-info">👥 {{req.studentName}}</div>
+                    <div class="date-time">
+                        <span>📅 {{req.date}}</span>
+                        <span>🕒 {{req.time}}</span>
+                    </div>
+                    <hr class="divider">
+                    <div ng-if="req.status === 'Approved'">
+                        <button class="btn-ready">📦 Mark as Ready for Pickup</button>
+                    </div>
+                    <div ng-if="req.status === 'Ready for Pickup'">
+                        <div class="ready-banner">Ready for pickup - awaiting collection</div>
+                    </div>
+                    <div class="btn-group" ng-if="req.status === 'Pending'">
+                        <button class="btn-approve">✓ Approve</button>
+                        <button class="btn-reject">✕ Reject</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <nav class="bottom-nav">
+            <div class="nav-item"><span>👤</span><p>My Profile</p></div>
+            <div class="nav-item active"><div class="icon-square">⊞</div><p>Dashboard</p></div>
+            <div class="nav-item"><span>📋</span><p>Orders</p></div>
+        </nav>
+    </div>
+
+    <script src="app2.js"></script>
+</body>
+</html>
