@@ -53,6 +53,14 @@ Functionality Requirements:The buttons should be interactive, and pages should b
 
 Output format: Please provide the full code for index.html, app.js, and style.css in separate, copyable code blocks.
 
+
+
+PWA TRANSFORMATION SECTION (1st Prompt):
+
+(Continuation from my Activity #14 AI Prompt and History)
+
+I have an AngularJS document request system. Help me transform it into a PWA (Progressive Web App). Provide a manifest.json with university branding, a service worker for offline caching, and the registration script. Ensure the service worker handles my js/ and images/ folders so the app works without internet.
+
 #### Screenshots
 
 ![Staff Dashboard](./images/staff-ss.png)
