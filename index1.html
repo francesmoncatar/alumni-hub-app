@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile - Document Portal</title>
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1d3580">
     <link rel="stylesheet" href="style1.css">
     <script src="js/angular.min.js"></script>
 </head>
@@ -102,11 +104,11 @@
 
     <script src="app1.js"></script>
 
-    <script>
-  if('serviceWorker' in navigator){
+  <script>
+  if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('Service worker registered', reg))
-      .catch(err => console.log('Service worker not registered', err));
+      .then(reg => console.log('Service worker registered from: ' + window.location.pathname))
+      .catch(err => console.log('Service worker registration failed', err));
   }
 </script>
 </body>

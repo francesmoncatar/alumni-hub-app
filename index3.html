@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff Portal</title>
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1d3580">
     <link rel="stylesheet" href="style3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <style>[ng-cloak] { display: none !important; }</style>
@@ -71,11 +73,11 @@
     </div>
     <script src="app3.js"></script>
 
-    <script>
-  if('serviceWorker' in navigator){
+ <script>
+  if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('Service worker registered', reg))
-      .catch(err => console.log('Service worker not registered', err));
+      .then(reg => console.log('Service worker registered from: ' + window.location.pathname))
+      .catch(err => console.log('Service worker registration failed', err));
   }
 </script>
 </body>
